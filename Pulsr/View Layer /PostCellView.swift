@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  PostCellView.swift
 //  Pulsr
 //
 //  Created by Daniel Yount on 9/30/19.
@@ -8,14 +8,14 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct PostCellView: View {
     var body: some View {
-        Text("Hello World")
+        Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct PostCellView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        PostCellView()
     }
 }

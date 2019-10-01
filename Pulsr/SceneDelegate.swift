@@ -25,7 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: contentView)
+            let store = RedditPostStore(service: .init())
+            window.rootViewController = UIHostingController(rootView: contentView.environmentObject(store))
             self.window = window
             window.makeKeyAndVisible()
         }
