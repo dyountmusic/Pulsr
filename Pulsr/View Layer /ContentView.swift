@@ -12,16 +12,18 @@ struct ContentView: View {
     @EnvironmentObject var redditStore: RedditPostStore
 
     var body: some View {
-        NavigationView {
-            VStack {
-                Text("Hello! I have posts!").padding()
-                Text("\(redditStore.posts.count) to be exact!").padding()
-                Text("First Post Title: \(redditStore.posts.first?.data.title ?? "")").multilineTextAlignment(.center)
+        HStack {
+            NavigationView {
+                VStack {
+                    Text("Hello! I have posts!").padding()
+                    Text("\(redditStore.posts.count) to be exact!").padding()
+                    Text("First Post Title: \(redditStore.posts.first?.data.title ?? "")").multilineTextAlignment(.center)
+                        .padding()
+                }.navigationBarTitle(Text("Posts"))
                     .padding()
-            }.navigationBarTitle(Text("Posts"))
-                .padding()
-        }.onAppear {
-            self.redditStore.fetch()
+            }.onAppear {
+                self.redditStore.fetch()
+            }
         }
     }
 }
