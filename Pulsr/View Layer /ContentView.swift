@@ -15,8 +15,11 @@ struct ContentView: View {
         NavigationView {
             List(redditStore.posts, id: \.data.id) { post in
                 PostCellView(post: post.data)
+                    .onTapGesture {
+                        guard let url = URL(string: post.data.url) else { return }
+                        UIApplication.shared.open(url)
+                }
             }
-            
             .navigationBarTitle("Posts")
             .onAppear { self.redditStore.fetch() }
         }

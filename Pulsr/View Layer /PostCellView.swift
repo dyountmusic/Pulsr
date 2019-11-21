@@ -18,12 +18,17 @@ struct PostCellView: View {
                 Text(post.title)
                     .font(.headline)
                     .padding(.bottom)
-                VStack(alignment: .leading) {
-                    Text("Upvotes: \(post.upvotes)")
-                    Text("Comments: \(post.commentCount)")
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text("Upvotes: \(post.upvotes)")
+                        Text("Comments: \(post.commentCount)")
+                    }
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                    Spacer()
+                    Text("Posted by: \(post.author)")
+                        .font(.subheadline)
                 }
-                .font(.caption)
-                .foregroundColor(.gray)
             }
         }
         .padding(.bottom)

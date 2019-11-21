@@ -35,6 +35,7 @@ struct RedditPosts: Codable, Hashable {
 /// Conforms to `Codable` and `Hashable`
 struct RedditPost: Codable, Hashable {
     var title: String
+    let author: String
     let upvotes: Int
     let url: String
     let thumbnail: String
@@ -42,11 +43,12 @@ struct RedditPost: Codable, Hashable {
     let id: String
 
     enum CodingKeys: String, CodingKey {
-        case title = "title"
+        case title
+        case author
         case upvotes = "ups"
-        case url = "url"
-        case thumbnail = "thumbnail"
+        case url
+        case thumbnail
         case commentCount = "num_comments"
-        case id = "id"
+        case id
     }
 }

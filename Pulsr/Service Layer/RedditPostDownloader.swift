@@ -28,7 +28,7 @@ class RedditPostDownloader {
     }
 
     func fetchPosts(completion: @escaping(Result<RedditData?, Error>) -> Void) {
-        guard let politicsURL = URL(string: "https://www.reddit.com/r/politics.json?raw_json=1") else { return }
+        guard let politicsURL = URL(string: "https://www.reddit.com/r/politics/rising.json") else { return }
         session.dataTask(with: politicsURL) { [weak self] data, _, error in
             if let error = error {
                 completion(.failure(error))
