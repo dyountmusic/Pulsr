@@ -19,17 +19,7 @@ struct PostCellView: View {
                     .font(.headline)
                     .multilineTextAlignment(.leading)
                     .foregroundColor(.primary)
-                Image("bernie")
-                    .resizable()
-                    .scaledToFit()
-                    .overlay(
-                        Text("Posted by: \(post.author)")
-                            .padding([.bottom, .trailing])
-                            .font(.caption)
-                            .foregroundColor(.white)
-                            .shadow(color: .black, radius: 0.1, x: 0.5, y: 0.5),
-                        alignment: .bottomTrailing
-                )
+                PostImageView(post: post)
                 HStack {
                     VStack(alignment: .leading) {
                         Text("Upvotes: \(post.upvotes)")
@@ -40,7 +30,7 @@ struct PostCellView: View {
                 }
             }
         }
-        .padding(.vertical)
+        .padding(.top, 4.0)
     }
 }
 
@@ -54,5 +44,25 @@ struct PostCellView_Previews: PreviewProvider {
             PostCellView(post: PostCellView_Previews.posts[1].data)
         }
         .previewLayout(.fixed(width: 500, height: 500))
+    }
+}
+
+struct PostImageView: View {
+    
+    let post: RedditPost
+    
+    var body: some View {
+        Image("bernie")
+            .resizable()
+            .scaledToFit()
+            .cornerRadius(10.0)
+            .shadow(color: Color(.displayP3, red: 0.0, green: 0.0, blue: 0.0, opacity: 0.3), radius: 10.0, x: 0.5, y: 1.5)
+            .overlay(
+                Text("Posted by: \(post.author)")
+                    .padding([.bottom, .trailing])
+                    .font(.caption)
+                    .foregroundColor(.white)
+                    .shadow(color: .black, radius: 0.1, x: 0.5, y: 0.5),
+                alignment: .bottomTrailing)
     }
 }
