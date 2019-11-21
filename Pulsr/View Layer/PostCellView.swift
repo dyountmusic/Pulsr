@@ -15,19 +15,27 @@ struct PostCellView: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                Text(post.title)
-                    .font(.headline)
-                    .multilineTextAlignment(.leading)
-                    .foregroundColor(.primary)
-                    .lineLimit(4)
-                PostImageView(post: post)
                 HStack {
-                    VStack(alignment: .leading) {
-                        Text("Upvotes: \(post.upvotes)")
-                        Text("Comments: \(post.commentCount)")
+                    VStack {
+                        Image(systemName: "arrow.up")
+                        Text("\(post.upvotes)")
+                            .font(.caption)
+                        Image(systemName: "arrow.down")
                     }
-                    .font(.caption)
-                    .foregroundColor(.secondary)
+                    VStack(alignment: .leading) {
+                        Text(post.title)
+                        .font(.headline)
+                        .multilineTextAlignment(.leading)
+                        .foregroundColor(.primary)
+                        .lineLimit(4)
+                        PostImageView(post: post)
+                        HStack {
+                            Text("Comments: \(post.upvotes)")
+                                .font(.caption)
+                                .foregroundColor(.secondary)
+                            Spacer()
+                        }
+                    }
                 }
             }
         }
