@@ -21,7 +21,7 @@ struct RedditData: Codable {
     }
 }
 
-struct RedditPosts: Codable {
+struct RedditPosts: Codable, Hashable {
     let type: String
     let data: RedditPost
 

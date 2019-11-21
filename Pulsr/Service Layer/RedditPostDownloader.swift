@@ -9,6 +9,15 @@
 import Foundation
 import Combine
 
+let redditMockData: [RedditPosts] = fetchMockPosts()
+
+func fetchMockPosts() -> [RedditPosts] {
+    let jsonFile = Bundle.main.url(forResource: "mock_reddit_posts", withExtension: "json")!
+    let data = try! Data(contentsOf: jsonFile)
+    let redditData = try! JSONDecoder().decode(RedditDataWrapper.self, from: data)
+    return redditData.data.posts
+}
+
 class RedditPostDownloader {
     private let session: URLSession
     private let decoder: JSONDecoder
@@ -40,6 +49,7 @@ class RedditPostStore: ObservableObject {
      @Published private(set) var posts: [RedditPosts] = []
 
     private let service: RedditPostDownloader
+    
     init(service: RedditPostDownloader) {
         self.service = service
     }
@@ -48,12 +58,12 @@ class RedditPostStore: ObservableObject {
         service.fetchPosts { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
-                case .success(let posts): self?.posts = posts?.posts ?? []
+                case .success(let posts):
+                    self?.posts = posts?.posts ?? []
                 case .failure: self?.posts = []
                 }
             }
         }
     }
-
 
 }

@@ -9,13 +9,29 @@
 import SwiftUI
 
 struct PostCellView: View {
+    
+    var post: RedditPost
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            VStack(alignment: .leading) {
+                Text(post.title)
+                    .font(.headline)
+                    .padding(.bottom)
+                VStack(alignment: .leading) {
+                    Text("Upvotes: \(post.upvotes)")
+                    Text("Comments: \(post.commentCount)")
+                }
+                .font(.caption)
+                .foregroundColor(.gray)
+            }
+        }
+        .padding(.bottom)
     }
 }
 
 struct PostCellView_Previews: PreviewProvider {
     static var previews: some View {
-        PostCellView()
+        PostCellView(post: redditMockData[1].data)
     }
 }

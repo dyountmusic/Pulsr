@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EAC497742386664B00D2A75A /* mock_reddit_posts.json in Resources */ = {isa = PBXBuildFile; fileRef = EAC497732386664B00D2A75A /* mock_reddit_posts.json */; };
 		EAEE2991234304A100EADD04 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEE2990234304A100EADD04 /* AppDelegate.swift */; };
 		EAEE2993234304A100EADD04 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEE2992234304A100EADD04 /* SceneDelegate.swift */; };
 		EAEE2995234304A100EADD04 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEE2994234304A100EADD04 /* ContentView.swift */; };
@@ -31,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EAC497732386664B00D2A75A /* mock_reddit_posts.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = mock_reddit_posts.json; sourceTree = "<group>"; };
 		EAEE298D234304A100EADD04 /* Pulsr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pulsr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAEE2990234304A100EADD04 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAEE2992234304A100EADD04 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				EAEE29A9234305FF00EADD04 /* RedditPostModels.swift */,
 				EAEE29AB234306F600EADD04 /* RedditSubredditModels.swift */,
+				EAC497732386664B00D2A75A /* mock_reddit_posts.json */,
 			);
 			path = "Model Layer";
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 				EAEE299D234304A200EADD04 /* LaunchScreen.storyboard in Resources */,
 				EAEE299A234304A200EADD04 /* Preview Assets.xcassets in Resources */,
 				EAEE2997234304A200EADD04 /* Assets.xcassets in Resources */,
+				EAC497742386664B00D2A75A /* mock_reddit_posts.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
