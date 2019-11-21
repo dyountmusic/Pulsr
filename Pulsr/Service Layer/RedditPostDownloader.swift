@@ -9,15 +9,6 @@
 import Foundation
 import Combine
 
-let redditMockData: [RedditPosts] = fetchMockPosts()
-
-func fetchMockPosts() -> [RedditPosts] {
-    let jsonFile = Bundle.main.url(forResource: "mock_reddit_posts", withExtension: "json")!
-    let data = try! Data(contentsOf: jsonFile)
-    let redditData = try! JSONDecoder().decode(RedditDataWrapper.self, from: data)
-    return redditData.data.posts
-}
-
 class RedditPostDownloader {
     private let session: URLSession
     private let decoder: JSONDecoder
