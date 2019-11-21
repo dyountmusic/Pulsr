@@ -19,6 +19,7 @@ struct PostCellView: View {
                     .font(.headline)
                     .multilineTextAlignment(.leading)
                     .foregroundColor(.primary)
+                    .lineLimit(4)
                 PostImageView(post: post)
                 HStack {
                     VStack(alignment: .leading) {
