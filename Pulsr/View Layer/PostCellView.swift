@@ -14,32 +14,13 @@ struct PostCellView: View {
     
     var body: some View {
         HStack {
+            UpvoteCountView(post: post)
             VStack(alignment: .leading) {
-                HStack {
-                    VStack {
-                        Image(systemName: "arrow.up")
-                        Text("\(post.upvotes)")
-                            .font(.caption)
-                        Image(systemName: "arrow.down")
-                    }
-                    VStack(alignment: .leading) {
-                        Text(post.title)
-                        .font(.headline)
-                        .multilineTextAlignment(.leading)
-                        .foregroundColor(.primary)
-                        .lineLimit(4)
-                        PostImageView(post: post)
-                        HStack {
-                            Text("Comments: \(post.upvotes)")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                            Spacer()
-                        }
-                    }
-                }
+                TitleView(post: post)
+                PostImageView(post: post)
+                CommentCountView(post: post)
             }
         }
-        .padding(.top, 4.0)
     }
 }
 
@@ -57,9 +38,7 @@ struct PostCellView_Previews: PreviewProvider {
 }
 
 struct PostImageView: View {
-    
     let post: RedditPost
-    
     var body: some View {
         Image("bernie")
             .resizable()
@@ -73,5 +52,41 @@ struct PostImageView: View {
                     .foregroundColor(.white)
                     .shadow(color: .black, radius: 0.1, x: 0.5, y: 0.5),
                 alignment: .bottomTrailing)
+    }
+}
+
+struct UpvoteCountView: View {
+    var post: RedditPost
+    var body: some View {
+        VStack {
+            Image(systemName: "arrow.up")
+            Text("\(post.upvotes)")
+                .font(.caption)
+            Image(systemName: "arrow.down")
+        }
+    }
+}
+
+struct TitleView: View {
+    var post: RedditPost
+    var body: some View {
+        Text(post.title)
+            .font(.headline)
+            .multilineTextAlignment(.leading)
+            .foregroundColor(.primary)
+            .lineLimit(4)
+    }
+}
+
+struct CommentCountView: View {
+    var post: RedditPost
+    var body: some View {
+        HStack {
+            Image(systemName: "ellipses.bubble")
+            Text("\(post.commentCount)")
+            Spacer()
+        }
+        .font(.caption)
+        .foregroundColor(.secondary)
     }
 }
